@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Bash - Tag - Joe Laskowski</title>
+        <link>https://thebiglaskowski.com/tags/bash/</link>
+        <description>Bash - Tag - Joe Laskowski</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>joe@thebiglaskowski.com (Joe Laskowski)</managingEditor>
+            <webMaster>joe@thebiglaskowski.com (Joe Laskowski)</webMaster><lastBuildDate>Sun, 21 May 2023 12:22:34 &#43;0000</lastBuildDate><atom:link href="https://thebiglaskowski.com/tags/bash/" rel="self" type="application/rss+xml" /><item>
+    <title>ShellGPT: Revolutionizing Command-Line Interactions with the Power of AI</title>
+    <link>https://thebiglaskowski.com/posts/shellgpt-revolutionizing-cli-with-the-power-of-ai/</link>
+    <pubDate>Sun, 21 May 2023 12:22:34 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/posts/shellgpt-revolutionizing-cli-with-the-power-of-ai/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/featured.webp" referrerpolicy="no-referrer">
+            </div>ShellGPT ShellGPT, a powerful command-line tool, revolutionizes how developers and administrators interact with their terminals. I&rsquo;ve used it in Powershell and WSL for the past few months, and it&rsquo;s incredible and has quickly become my favorite CLI tool. By leveraging the capabilities of OpenAI&rsquo;s GPT models, ShellGPT offers a wide range of functionalities, such as generating shell commands, code snippets, comments, and documentation.
+This tool eliminates the need for cheat sheets and notes, providing accurate answers directly in the terminal.]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,2924 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Faceoff: A Journey into the World of AI-Driven Face Swapping - Joe Laskowski</title>
+        <link rel="preload" as="image" href="/images/forrest-rs.webp" type="image/webp" /><meta name="Description" content="Dive into the intriguing realm of AI-driven face swapping with this detailed exploration of the Faceoff app and InsightFace technologies. This article offers insights into the progression of face swapping, the impact of machine learning, and the use of Python scripts such as GFPGAN and Real-ESRGAN to improve image quality."><meta property="og:title" content="Faceoff: A Journey into the World of AI-Driven Face Swapping" />
+<meta property="og:description" content="Dive into the intriguing realm of AI-driven face swapping with this detailed exploration of the Faceoff app and InsightFace technologies. This article offers insights into the progression of face swapping, the impact of machine learning, and the use of Python scripts such as GFPGAN and Real-ESRGAN to improve image quality." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thebiglaskowski.com/posts/face-swapping-with-ai/" /><meta property="og:image" content="https://thebiglaskowski.com/posts/face-swapping-with-ai/images/featured-social.webp" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-28T21:04:49-04:00" /><meta property="og:site_name" content="thebiglaskowski.com" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://thebiglaskowski.com/posts/face-swapping-with-ai/images/featured-social.webp"/>
+
+<meta name="twitter:title" content="Faceoff: A Journey into the World of AI-Driven Face Swapping"/>
+<meta name="twitter:description" content="Dive into the intriguing realm of AI-driven face swapping with this detailed exploration of the Faceoff app and InsightFace technologies. This article offers insights into the progression of face swapping, the impact of machine learning, and the use of Python scripts such as GFPGAN and Real-ESRGAN to improve image quality."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon-150x150.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://thebiglaskowski.com/posts/face-swapping-with-ai/" /><link rel="prev" href="https://thebiglaskowski.com/posts/shellgpt-revolutionizing-cli-with-the-power-of-ai/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Faceoff: A Journey into the World of AI-Driven Face Swapping",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/thebiglaskowski.com\/posts\/face-swapping-with-ai\/"
+        },"genre": "posts","keywords": "InsightFace, Face Swap, GFPGAN, Real-ESRGAN, AI","wordcount":  2428 ,
+        "url": "https:\/\/thebiglaskowski.com\/posts\/face-swapping-with-ai\/","datePublished": "2023-06-03T00:00:00+00:00","dateModified": "2023-08-28T21:04:49-04:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Joe Laskowski"
+            },"description": "Dive into the intriguing realm of AI-driven face swapping with this detailed exploration of the Faceoff app and InsightFace technologies. This article offers insights into the progression of face swapping, the impact of machine learning, and the use of Python scripts such as GFPGAN and Real-ESRGAN to improve image quality."
+    }
+    </script>
+        <link rel="dns-prefetch" href="////c.disquscdn.com">
+        <link rel="preconnect" href="////c.disquscdn.com">
+        
+        <link rel="dns-prefetch" href="////thebiglaskowski.disqus.com">
+        <link rel="preconnect" href="////thebiglaskowski.disqus.com">
+        
+        <link rel="dns-prefetch" href="////www.googletagmanager.com">
+        <link rel="preconnect" href="////www.googletagmanager.com">
+        
+        <link rel="dns-prefetch" href="////apis.google.com">
+        <link rel="preconnect" href="////apis.google.com">
+        
+        <link rel="dns-prefetch" href="////connect.facebook.net">
+        <link rel="preconnect" href="////connect.facebook.net">
+        
+        <link rel="dns-prefetch" href="////cdn.jsdelivr.net">
+        <link rel="preconnect" href="////cdn.jsdelivr.net">
+        
+        <link rel="dns-prefetch" href="////fonts.gstatic.com">
+        <link rel="preconnect" href="////fonts.gstatic.com">
+        
+        <link rel="dns-prefetch" href="////www.gstatic.com">
+        <link rel="preconnect" href="////www.gstatic.com">
+        
+
+    </head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Joe Laskowski">thebiglaskowski</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Blog Posts"> Posts </a><a class="menu-item" href="/about/" title="About Me"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Joe Laskowski">thebiglaskowski</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Blog Posts">Posts</a><a class="menu-item" href="/about/" title="About Me">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Faceoff: A Journey into the World of AI-Driven Face Swapping</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/about" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Joe Laskowski</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="06-03-2023">06-03-2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2428 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/face-swapping-with-ai/images/featured.webp"
+        data-srcset="/posts/face-swapping-with-ai/images/featured.webp, /posts/face-swapping-with-ai/images/featured.webp 1.5x, /posts/face-swapping-with-ai/images/featured.webp 2x"
+        data-sizes="auto"
+        alt="/posts/face-swapping-with-ai/images/featured.webp"
+        title="Dive into the intriguing realm of AI-driven face swapping with this detailed exploration of the Faceoff app and InsightFace technologies. This article offers insights into the progression of face swapping, the impact of machine learning, and the use of Python scripts such as GFPGAN and Real-ESRGAN to improve image quality." width="2240" height="1260" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#insightface-and-its-contributions">InsightFace and its Contributions</a></li>
+        <li><a href="#a-brief-history-of-face-swapping">A Brief History of Face Swapping</a></li>
+        <li><a href="#faceoff-app-a-personal-project-inspired-by-insightfaces-innovations">Faceoff App, a Personal Project Inspired by InsightFace&rsquo;s Innovations</a></li>
+        <li><a href="#improving-image-quality-with-codeformer-and-real-esrgan">Improving Image Quality with CodeFormer and Real-ESRGAN</a></li>
+        <li><a href="#interfacing-faceoff-with-gradio">Interfacing Faceoff with Gradio</a></li>
+        <li><a href="#try-faceoff-for-yourself">Try Faceoff for Yourself</a></li>
+        <li><a href="#the-technicalities-of-face-swapping-simplified">The Technicalities of Face Swapping (Simplified)</a></li>
+        <li><a href="#the-future-of-face-swapping">The Future of Face Swapping</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h4 id="face-swapping-with-ai">Face Swapping with Ai</h4>
+<p>Face swapping, the intriguing process of digitally interchanging faces in images, has been a fascinating concept in digital imagery for years. The ability to replace one person&rsquo;s face with another in a photograph while maintaining the original image&rsquo;s integrity is a testament to the advancements in artificial intelligence (AI) and machine learning. This article delves into the intricacies of face swapping, focusing on an application called Faceoff, which leverages a Python library known as InsightFace.</p>
+<h3 id="insightface-and-its-contributions">InsightFace and its Contributions</h3>
+<p><a href="https://insightface.ai/" target="_blank" rel="noopener noreffer ">InsightFace</a>, a project initiated by the eponymous company, is a pivotal non-profit platform specializing in face recognition, analysis, and synthesis in the AI research landscape. This project stands out for its comprehensive approach to face analysis, encompassing both 2D and 3D aspects. It efficiently incorporates many cutting-edge algorithms, streamlining the processes of face recognition, detection, and alignment.</p>
+<p>The open-source technologies birthed by InsightFace have significantly contributed to the evolution of face detection and recognition applications. Their <a href="https://github.com/deepinsight/insightface" target="_blank" rel="noopener noreffer ">GitHub repository</a>, a wellspring of resources, offers invaluable assets for developers engrossed in face-related technologies.</p>
+<p>The company&rsquo;s tenacious commitment to propelling AI technologies forward has developed many innovative tools and libraries. Among these, the InsightFace Python library has been a cornerstone in creating the Faceoff app, demonstrating the practical application of these advanced technologies in real-world scenarios.</p>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  	
+	
+
+	
+		<script src="/shortcode-gallery/jquery-3.7.0.min.js"></script>
+	
+	
+	
+		<script src="/shortcode-gallery/lazy/jquery.lazy.min.js"></script>
+	
+
+	<script src="/shortcode-gallery/swipebox/js/jquery.swipebox.min.js"></script>
+	<link rel="stylesheet" href="/shortcode-gallery/swipebox/css/swipebox.min.css">
+
+	<script src="/shortcode-gallery/justified_gallery/jquery.justifiedGallery.min.js"></script>
+	<link rel="stylesheet" href="/shortcode-gallery/justified_gallery/justifiedGallery.min.css"/>
+
+
+<style>
+	
+		.jg-entry img {
+			transition: transform .25s ease-in-out !important;
+		}
+
+		.jg-entry img:hover {
+			transform: scale(1.1);
+		}
+	
+
+	
+</style>
+
+
+
+
+
+<div id="gallery-b7392e055b2c115cb957e5845dae81ea-0-wrapper" class="gallery-wrapper">
+<div id="gallery-b7392e055b2c115cb957e5845dae81ea-0" class="justified-gallery">
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example0.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="400"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABUAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APNFd1bcpK/Sup8OLpT2BbVLmeJ5ZNkSxkjefwGT1FY8miTx3DweYjFe4z6ZrW0SWS1tXgdo5kRtyhQN6&#43;4J96ip8JrTtzCa3NYxiP8As&#43;6kuIDwTJnKtnkcjnjB/Gn6FePDd7h53CE/uW2t/wDqqDxFcfa7i2gDrEIlPysMEMTnJI7kYpltaXkC&#43;ZFtJHGVfqKIx90molzMt61ek63cWSII0UeWWXGWxxk8VzrXc8NyzxSFDjbkelbGsf8AI13X/XRv51gTf65/rWttCI6FwDzdzyszuedxPJORyfzrqvA11t1KS2eNZIzGSA/O0j0/M1y0f3G&#43;n9RXReCf&#43;Q63/XJqYp7M/9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example0_hufe4be1153c2b0e764c75e92063974263_120370_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example1.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="324"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABEAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AMWGRl3bnIIUlcHHNJ5s9wvlbDu6l9zE4/l&#43;lLDbLLLteVuPT6Va81UlTy/kEcm335U//WqlFtDukyG3tWOHZleNfvZODnGcf/XqzNFGUJjEaKp4GSWb6e1VVLSkSbpMx5AUNwT/AJxVcPIs4RyQRjjPWkgYr/eX/rqn8xVu6&#43;6v/XRP51Uf7y/9dU/mKt3X3V/66J/OtI7EPcZbfcl/66t/IVFdf66H/eP8qltvuS/9dW/kKiuv9dD/ALx/lWSLZ//Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example1_huae0c5cb00fe4d6ebc09a4ccd6a812a39_613350_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example10.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="512" height="512"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOPsdOlvZ1ihXczH8verNxpJtyS24qpwX24XPpmtS1vV0vTJJUjGZeMeo&#43;tQ6tI8dhbxGYs9w2/HVQDjgf57VlzycrLY35IqN2ZmoaVc2lpHO/lKJBkIpO4fX9Kom0YxI55LjhV5Jrd1vMIjka1XBUjc3UsccjP0rObVo4rPyLWLZLyHlbk/QelbQba1Malr&#43;6F/e7Ifs4II9fenie3EUOoqnzRFVZD0Z&#43;efbgA/XNZFxKXlLHu1OhuAscsYGUZOQfUd/wBa15Vaxm2zV/tOdka4un8/zQwVZBkccDHpgnt6Vk7lXk8mnTvJ9ngUoVCIe3uTVQsSaSskPVu5/9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example10_hu3f24de9f076db440a5c08d0ce86b737f_15994_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example11.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="338"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABIAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AM0TH&#43;7XT&#43;GdOt7iFr2dNxV8KD0HvXPC3iIBSUg/7XNaen6peWVi8IRWUHcGBz9RiiT0Ejf16W2fT2jfb1HI6jsDXDyBgxw35mrGq6xDesreWnmOwOwJ852g85/Gqcc4lUiWIrzjO6oi3HcuST2LCjijVnZLBArFRt7GgdKbrH/Hiv8AuCrkZowoWJ1O0ySea6Bh8tc/B/yE7X/eroG&#43;7WjEj//Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example11_huaed486851792da9c31b949de1ce3adb0_109786_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example14.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="306" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAEAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AMK00iM2lzcTbv3QUKo7knk1n3FqY2whYDPGetSz6zMzSJAQsEnysCMlhTt&#43;XaBxiROvOQR6iuF8ySO73XoZK/u3KMQcHFXkD7vPfau1QME8kD5f6VT1C&#43;hluJDbwCNW46&#43;&#43;aqpK8YLH&#43;I810cl0c/PZn//Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example14_hufdb66ba81f5e25798607c525ce7bb26a_28948_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example2.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="336"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABIAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOO0/S31BfkkCgA9skkdhVw6PKtpiOIs&#43;ciTIIK&#43;nH41Q0u/FsgRmIy&#43;4EfTH9a0l1GayxaLMrwhtwbvyOn61x1JVIyaR2QjBx1Ibe2u4E&#43;5HgnP3sYI/wD11VKy3MsmJ0DgE4JODj3roJptOi0&#43;HNuJdwzIcbSOc/TvVK70/T7y0kn0uV0kCZaFx971xjpWcK93qhyppLQ5iP74rTgAN0uQD8p61mR/fFadv/x9L/umuqsYUjb2htEgJAJ55I&#43;tZNo7xzP5bMnBHynHatcf8gOD8f61jW/&#43;uf6H&#43;VcNPaR1S3R//9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example2_hu6b046f70b6a6cac25daeb20c92d2aba7_29590_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example4.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="512" height="512"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOP&#43;yZqOSEoDxzWpJuSF5FRWWMgNzyc&#43;lRmKKO&#43;t5S5MbbWbeev&#43;FYKTZvymRNbzQMFljZCexFR4rX1lhNesi7iSwxnk/wCeao3dlJZSCOXG4jOAelaxldK5Eo2bsaTlV88O52vjCD&#43;96/l/OsuWRicE8DoPStO8exWJivmecen92sdjk0UtgqaOxbhkJRZmYlo2A69h0q3rvnzXrXDr&#43;7b7pA6fX3rLjfajr/eFW5J5Zrc7pSf9kmiUdUxKWlj/2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example4_hua53b904dd8c3e0f0a48ce395ae2f7ef8_11374_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example6.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="365"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABMAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AMD&#43;05EMEXmIyoo5HOOB15q1eSarplhaSOyQlguI2HIwBz&#43;tZOlWCtND5kpQPJlj02rwc5/CtrUNNklW4jlN19nDptklIZgdp6Y6rigC/bLd3ulC6tJlvJ48hoRJhzkk55GOg9aypdcu7m9tmSJ7YINrqwyRtHfgYOQfzrX0KCWGS2trS5lhgjLNLLHFndnGA3tx1rnfEsc1nrt0IbgybvnVmIHXrgd&#43;c0AWb2V4NPs44jsWRPnAHX71T&#43;D9RvGikR7h3U7eHO7ufX6Cq2p/8emn/wC5/wDFUeDvuv8A8A/m1ADZta1O51OezmvZnt/MK&#43;WW4xmpvElhaiDTyIhl2w3J6ccVlj/kPT/9dT/6FW54l/499N/66H&#43;lAH//2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example6_huc569785b9b23a32da25508bc99b47ba6_38554_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example7.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="336"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABIAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOf0HUZItpeYKARgdzXcQ6zBJCULA5U4P4V55pmkpK6Zn6n5sL0/GupawsV8tbQZTcBueQ5Pv6enao2Z0cl9zX1XVpBG/wBkXmRtu/buC8E/4D8axbvUM29u0mEkIBZe6/6vqO1VNRvWFtJBpxDOx2ljJgDtjk4rD1xlhvI0gcbBEpOxs5bHOcd6LtsmVNJElgxFq&#43;CRxWg7MunoVYg7&#43;x9qzrH/AI9X&#43;laEv/IOX/f/AKUzQ5Qu2fvHn3oJJHJpD1o7U0Ys/9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example7_hu055d7a07ca9901071dbbd93bf84199f5_21356_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example8.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="336"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABIAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOXEirMMJsx2znNaF7eW95a29pFJ5rxyhigGRjB5zWFe3qz4SNcD&#43;I&#43;tRwXLQypghlHY9KLXNL8rOzn8TyJc/YbdkW2tECHAB8w9Dg9h6YqLU72bzZNj4QIMcVztxcQS3DllCsQCWTpkCrU1159vGxY52jK8DtWfLrqW3poYA7VIv33qMdqkX771pEzmSnox/wBk/wAqkjPEf0qM9G/3T/KpE6R/SpluXH4T/9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example8_hu6e65381850b57ed0da41c98fe1c4c52c_16418_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery/example9.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="400"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABUAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AObtm2ggHd0z71sQXMWn6a1w5ZlJChDlmJz2zwO1c7b3ciKu4ZUHAccD6VZvc3duLhZV3IR&#43;6A7evvXDUXM7PYasdVa65aZMe10mxuIb&#43;HHv75rntYmEUjOiFTnPzcn1qlb6ghlkedSJSoEbqoIXA7g//rpL1yzDLCXIJyOVP9fwqYUVGRUvIhvbUWR2LIzAkjn2xSRyNGhZcYbAK465qzrX&#43;tH&#43;839KqD/UD6r/AFrWDcoJsJJKTQrLsmZhjEZ3bccGoJLhmkYhEGeeAeKsSfen&#43;n9aot94/StY6ks//9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery/example9_huf71e02c60fa1f378440c1c69b6d6b29a_23652_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+</div>
+</div>
+
+<script>
+	if (!jQuery) {
+		alert("jquery is not loaded");
+	}
+
+	$( document ).ready(() => {
+		const gallery = $("#gallery-b7392e055b2c115cb957e5845dae81ea-0");
+		
+
+		
+		let swipeboxInstance = null;
+
+		
+		
+		gallery.on('jg.complete', () => {
+			
+				
+				
+				$(() => {
+					$('.lazy').Lazy({
+						visibleOnly: true,
+						afterLoad: element => element.css({filter: "none", transition: "filter 1.0s ease-in-out"})
+					});
+				});
+			
+
+			swipeboxInstance = $('.galleryImg').swipebox(
+				jQuery.extend({},
+					{  }
+				)
+			);
+		});
+
+		
+		gallery.justifiedGallery({
+			rowHeight : "150",
+			margins : "5",
+			border : 0,
+			randomize :  false ,
+			waitThumbnailsLoad : false,
+			lastRow : "justify",
+			captions : false,
+			
+			
+		});
+
+		
+		
+	});
+</script>
+
+<h3 id="a-brief-history-of-face-swapping">A Brief History of Face Swapping</h3>
+<p>Face-swapping technology has come a long way since its inception. Initially, it was a manual and time-consuming process requiring expert image editing software skills. With the introduction of AI and machine learning, the process has become automated, faster, and more accurate. The technology uses algorithms to identify facial features in an image, extract them, and superimpose them onto another face while maintaining the original image&rsquo;s lighting, angle, and expression.</p>
+<p>The first instances of face swapping were seen in the film industry, where it was used to create special effects. As time passed, the technology became more available and eventually made it into mobile apps and social media platforms, allowing users to swap faces with friends, celebrities, or pets for entertainment. Notable examples include <a href="https://www.snapchat.com/" target="_blank" rel="noopener noreffer ">Snapchat</a>&rsquo;s face swap filter and <a href="https://www.faceapp.com/" target="_blank" rel="noopener noreffer ">FaceApp</a>, which have brought face swap technology to the masses.</p>
+<p>However, the technology&rsquo;s potential extends beyond entertainment. It has significant implications for security, identity verification, and medical research. For instance, face swapping can protect individuals' identities in sensitive photographs or videos or create realistic avatars for virtual reality environments. On the other hand, more advanced applications of face swapping, such as deepfakes, have raised serious concerns about misinformation, identity theft, and privacy.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/H7KS8ZoulGw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h3 id="faceoff-app-a-personal-project-inspired-by-insightfaces-innovations">Faceoff App, a Personal Project Inspired by InsightFace&rsquo;s Innovations</h3>
+<p>The Faceoff app utilizes an AI-trained model called inswapper_128.onnx, initially created by InsightFace for demonstration purposes. This model was designed to recognize and extract facial features from an input image and then superimpose them onto a target face in another photo. However, the demo version of the model was limited to a 128x128 resolution, which, when run on its own, resulted in pixelated and low-quality output images.</p>
+<p>What sets the inswapper model apart from other face-swapping technologies is its ability to generate high-quality results with just a single input image. This is a significant advancement over other methods, such as training LoRA models and Dreambooth, which require several to several dozen images and are semi-complex to train. Not only do these methods take considerable time to prepare properly, but they also need a substantial amount of computational resources.</p>
+<p>In contrast, the Faceoff app, leveraging the power of InsightFace&rsquo;s AI model, can produce near-instant results comparable to these competing options. This is made possible by the advanced algorithms and techniques employed by the inswapper_128.onnx model can accurately extract and superimpose facial features even from a single image. The result is a high-quality face swap that maintains the integrity of the original image while seamlessly integrating the new face.</p>
+<p>When the demo model was released on GitHub, it attracted an influx of spammers. This unexpected surge prompted the developers to relocate the advanced version of the application to Discord, a more controlled environment. Consequently, the original inswapper_128.onnx file was removed from GitHub.</p>
+<p>InsightFace has expanded its reach to Discord, a popular communication platform, where they have introduced the InsightFaceSwap bot. This bot allows users to directly experience the power of InsightFace&rsquo;s face-swapping technology. Users can create stunning, high-quality face swaps of themselves by using the bot in conjunction with Midjourney, a tool for creating personalized portraits.</p>
+<p>The InsightFaceSwap bot is free and provides an excellent way for users to test face-swapping technology. More information about the bot, including a tutorial on installation and commands, can be found here on InsightFace&rsquo;s <a href="https://github.com/deepinsight/insightface/tree/master/web-demos/swapping_discord" target="_blank" rel="noopener noreffer ">GitHub page</a>. This move to Discord represents InsightFace&rsquo;s commitment to making its technology accessible to a broader audience and provides a glimpse into the potential future of AI face-swapping technology.</p>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+	
+		.jg-entry img {
+			transition: transform .25s ease-in-out !important;
+		}
+
+		.jg-entry img:hover {
+			transform: scale(1.1);
+		}
+	
+
+	
+</style>
+
+
+
+
+
+<div id="gallery-b7392e055b2c115cb957e5845dae81ea-2-wrapper" class="gallery-wrapper">
+<div id="gallery-b7392e055b2c115cb957e5845dae81ea-2" class="justified-gallery">
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery2/example1.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="512" height="512"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APOYV4rqfCukWF9JJLfBnSPGEU4zz&#43;dcxF0FbWnXyLa/ZZFLZcP94rnHbOfSs5XNY7C67a6clw409XjCj5kbJx9M81gyrxmrTyiRnIyM9ic4qvKcrTWgPVD7aRYiGddy&#43;/rWhIkN3bHAAIxjaQOfpWUjgIAeeakWZlJCkgemapozGqhjbJ6/WkkkMnB7Cms5/WmlsjJNMD//2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery2/example1_hue0dea451240c2ab6a35edce5b8cb18ec_32946_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery2/example10.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="489" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAGgMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AMSwW0h0&#43;7EsYLMF2g1ftIZ76za6SYqFUiNMnBx6Vz1&#43;z&#43;QFHCqN3HetzSbUT6MsRvZRvw67Bwo5zz09Kwl7&#43;rOmK9nojJDvcNskz5inOeuRURtRk8ipkjjTVZBG5ePeRuPfikcNvOGGM1rTeljGstblG9diFXBxtyfeiwv7iIPCkasOdpOcoKbdNkI2e1LZOEUsVycEn3qdomqXNJFu2Z3dVXAcHPNTsINxys3XtHUNldvEHeMgYwAcdastcoXJZUznn5KwcpJ6HaqUJRTauf/Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery2/example10_hu283cfe426b08fb53fff9f3180412df60_121436_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery2/example2.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="336"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABIAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AON1G8a&#43;nDspGR8o9BWx4aeWM71VTHvVGyfU44rCCGe4AT5QcDJNbGmv/ZtyLe6kSNWYSKzHjg&#43;3Ss5ao3pqzJvEizwXa3M0SBHOwYP3gOhqBgJdKlOMbcAfSl1K4m17UVjtomlgT5VKggZ7n2rfTQVfQ3gVj9oCZz2YjtTimTUauclo3&#43;vb8K6hFUyEEAgJkZHSuX0X/Xt&#43;FdTH/rW/3DQyS/bjCtjjAHStC27Hv61nwdH&#43;grQtugoRLP/Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery2/example2_hu689f2b02fcbcd1a816b513bc7d697a64_39628_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery2/example3.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="400"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABUAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AMOzuhZsibM7gC9bE&#43;sx21qJFVkabCqitg57kk9ulc9JJi6LeWSgGcnnjtUl7dSSWSr5jApgxkcAc5/SuJxu7nUmkrM07m4jjSdEjDGNMMrjcpY5wQfT8qwJ9RubyQyXMwOONoA/IdsVct9ReMsk0C3IuQAAePbrVDVYY7e58uJyoxh&#43;Rwe4yOuKqMRydnoFrfSByhAIkG1s1o2duPsc0uQcREkEZ71i23&#43;vT610Fn/yDJ/&#43;uJ/nVtJPQxbbaOcEzK3y8d6lkbzlJbPTPXvVfvUy/wCrP&#43;7VsD//2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery2/example3_hu5d78863b459a305c3cdbba18e10b558f_68092_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery2/example5.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="405" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAFgMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOak0wxRNJIcKoyTVaG3824jhkjaASjMbycBq7Hxzbmx0GIRNIYjOvmgrjI59q5fVb23eCB4nd3BUxkvnaB3rGE5NG3LFq4k&#43;lmEj5lfP901D9jb&#43;7&#43;tdBNpFxNNuX94NoOFOcZANM/sK5/54tTUm1chpI1/HV7Nqd7b&#43;HrVM&#43;YVleQngDn8gBzXEa/ZJp&#43;qNaowZVAIIOcZq1b6uJdauL2WRVZwQCTgY49fpWPdyB7qSQNuLOTnOc81UIJIGzvPCGovcQyRSXJt/LUBSi8uBxz9OK6XzB/0FZv&#43;&#43;DXm2i61FYQvHIWXcc7lbB&#43;laf8AwlFr/wA9p/8Avv8A&#43;tUVKbcrxdhKT6o//9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery2/example5_hu9ddec545d1d23d08a22bf902aff5bae2_29542_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery2/example6.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AODAyRXW&#43;HtFtJYFub4syNnYi8Zrl4omYjCk/QV0&#43;mXbxpFDNH&#43;6GVO9ePaueo3bQ6IK71LGpaVCsJaKFYJAN3lqxbI/xrn5I9tax1MJqy7I0ZyG3MCcdeOKoXLtJcSSOMFiTg9qiN&#43;o5WTsh1oADtHJ25z6VcgnV2ZW5CsOPwrHhz5QEeAzfxM3b6U2OSeyeSUsGQkDj&#43;dXFK7KnzNWRvt9lsGlkjG7b3P8R7Vl380ktxvc8EcZquuoG4dY1UEE85GcetVb24k&#43;05IxkcAelaqOljmv712f/9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery2/example6_hu2f601ac2b83bab8e0a91550680544597_49236_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery2/example7.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOGkIL8DAAxW3pGm2lzp8r3BcS7CyAISPzrNW3llt1kEJEYJBYjg1ZjeWyt3yATt2gHqB3xXJN9Ed1NLVyI102T7Oblo5BDkBW28H8antbdQUjP3S/J9av6FfrcwPYAYZ&#43;EYjPp&#43;WMCnfYri1jhnliIjLkbxyM55H6GkpNysxyhFJNFlUSHwzKCDloztAGQT2/Guds3N1&#43;5laQjpsReT&#43;Pb9ajl1aSS3SLDhk9OlNtrq5eVnRsYHO6qcXYlSVzptIXTbNVdd6N/GpbJA9qffXTPa3iLJi3SXMUZGMAnI/nWFbLiVZ7qUbAc7QcGr94krWT&#43;TBsjI34Jyz/WoW&#43;ho9tT/2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery2/example7_hu9501d195a2fd6f5736a8d752852f2b68_37148_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery2/example8.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="336"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABIAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AMO30H7O7R3jCNY1yGwWBPXt15qebVNMjgjtEDCfHlmZTjKk9B1rmbq/vJ1QyzOxwcZNVlnJCB1XCg/Nt561PIn1LUrPY6GxeLToftE&#43;&#43;aJ2x5Uh68Ag/hzXU6ZrOnztBawokLyD92SAeff8a4u0Rr&#43;4W3j3Om3OOAF98Y9639SgtUa3ezj8ma3ZRhR94A/z71ndLc0euxxrcQgj1P8ASoZQBJIAOjHFTP8A6n8T/SoZv9bL/vGtEZSN/wAJ8aiccfIf5iuggUNaTsQCd/U1z/hT/kI/8AP8xXQW/wDx5z/7/wDWsanxGtP4T//Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery2/example8_huaa93056493b888ab05788466cb6208e9_103172_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery2/example9.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="400"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABUAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AC6TTbWZooYWjjuT5btDhcDHBPOPXmsyW0tGubmVpsKsa7Zgi8knHPbI9Rjp65rI1FbuTUrdoyz&#43;cVCBWyCemK6LWdN/sG3tY74xssrElCAVBx8oJP1NY1JO2gqEFdcw3Rlj0&#43;aUzvHeKnKSKMlcnAztPTkVPqGrySrdO8ISKBgvmKfUD/GsTU3mjsPM8pYZZG&#43;YIu0HryQKyL64kuFMXmHYGLAE8E4A/kKIt2Qpwi5O2x6h4L0i3TSINSOWmcFlz/B2/wAfzq14q0uLUNJeKdiVB3rwPlbB5FSeD/8AkUrP/cb&#43;Zqzrn/IPk&#43;n9K0aVg2POkBmsg9w7SnaDljzjaOK5nURslO3gMeldPF/yDh/uf&#43;yiuY1T/WCoj0Bbs//Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery2/example9_hu8c68d4fa64f6270303cda13c5ec71b65_36608_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+</div>
+</div>
+
+<script>
+	if (!jQuery) {
+		alert("jquery is not loaded");
+	}
+
+	$( document ).ready(() => {
+		const gallery = $("#gallery-b7392e055b2c115cb957e5845dae81ea-2");
+		
+
+		
+		let swipeboxInstance = null;
+
+		
+		
+		gallery.on('jg.complete', () => {
+			
+				
+				
+				$(() => {
+					$('.lazy').Lazy({
+						visibleOnly: true,
+						afterLoad: element => element.css({filter: "none", transition: "filter 1.0s ease-in-out"})
+					});
+				});
+			
+
+			swipeboxInstance = $('.galleryImg').swipebox(
+				jQuery.extend({},
+					{  }
+				)
+			);
+		});
+
+		
+		gallery.justifiedGallery({
+			rowHeight : "150",
+			margins : "5",
+			border : 0,
+			randomize :  false ,
+			waitThumbnailsLoad : false,
+			lastRow : "justify",
+			captions : false,
+			
+			
+		});
+
+		
+		
+	});
+</script>
+
+<h3 id="improving-image-quality-with-codeformer-and-real-esrgan">Improving Image Quality with CodeFormer and Real-ESRGAN</h3>
+<p>To overcome the limitations of the inswapper_128.onnx model, the Faceoff app employs two Python scripts, <a href="https://github.com/sczhou/CodeFormer" target="_blank" rel="noopener noreffer ">CodeFormer</a> and <a href="https://github.com/xinntao/Real-ESRGAN" target="_blank" rel="noopener noreffer ">Real-ESRGAN</a>.</p>
+<p>Real-ESRGAN is designed to develop practical algorithms for general image/video restoration. It also incorporates GFPGAN (Generative Face Prior GAN), a script that enhances the quality of face images. GFPGAN uses a generative adversarial network (GAN) to generate high-quality facial images from low-quality inputs, thereby improving the quality of the faces swapped using the inswapper_128.onnx model.</p>
+<p>On the other hand, CodeFormer, developed by S-Lab at Nanyang Technological University, is used as an alternative option for enhancing the final output. CodeFormer is an advanced tool that uses AI to improve the quality of the final face-swapped image, making the results even more impressive. It&rsquo;s designed for robust blind face restoration with a Codebook Lookup Transformer, as detailed in their NeurIPS 2022 paper. CodeFormer can be used for various tasks, including face restoration, whole image enhancement, video enhancement, face colorization and face inpainting. It provides a balance between fidelity and quality, with the fidelity weight parameter &lsquo;w&rsquo; allowing users to adjust the output according to their needs.</p>
+<p>By combining these two powerful tools, the Faceoff app can produce high-quality, stunning results from low-resolution outputs. This allows the app to overcome the limitations of the inswapper_128.onnx model and produce face-swapped images that are of much higher quality than would otherwise be possible.</p>
+<figure><img src="images/stone-cold.gif"/><figcaption>
+            <h4>Stone Cold Example (Img2GIF)</h4>
+        </figcaption>
+</figure>
+
+<h3 id="interfacing-faceoff-with-gradio">Interfacing Faceoff with Gradio</h3>
+<p>In an effort to enhance user-friendliness and interactivity, the Faceoff application has been interfaced via <a href="https://gradio.app/" target="_blank" rel="noopener noreffer ">Gradio</a>. Gradio is an open-source framework for creating and sharing machine learning models with easy-to-use UI components. It allows developers to quickly create web-based interfaces for their models, making them accessible to non-technical users.</p>
+<p>With Gradio, the Faceoff app can easily input images, select their desired options, and see the results of the face swap in real-time. This makes the app more accessible and easier to use than running it in my terminal. It also allows for quick iterations and testing, as I can immediately see the results of using different versions of this script.</p>
+<p>While I would love to publish a live demo of this application to showcase its capabilities, certain limitations prevent me from doing so. My blog is hosted on an older server in my basement, which needs more hardware to run the Faceoff app efficiently. The application requires a powerful GPU to run locally. I use an Nvidia RTX 3060 Ti, and a 2000 series Nvidia RTX with sufficient onboard memory could also handle the task. However, I do not have a spare one to dedicate to the server hosting my blog.</p>
+<figure><img src="images/gradio.webp"/><figcaption>
+            <h4>Gradio (demo)</h4>
+        </figcaption>
+</figure>
+
+<p><strong>Gradio interface example</strong>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+	
+		.jg-entry img {
+			transition: transform .25s ease-in-out !important;
+		}
+
+		.jg-entry img:hover {
+			transform: scale(1.1);
+		}
+	
+
+	
+</style>
+
+
+
+
+
+<div id="gallery-b7392e055b2c115cb957e5845dae81ea-5-wrapper" class="gallery-wrapper">
+<div id="gallery-b7392e055b2c115cb957e5845dae81ea-5" class="justified-gallery">
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery1/input.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="400" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAFQMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APOowWYKO9Xp7C609Y7jJUP91l4waqwbTMgckDPUV0t3DbT&#43;GftMsxaaEbFAPXk4/SlKVmVCHMmc5eyedMJDK8jMo3F&#43;ue9V6e3zUmKq5nYM8CrU97cS20Vu8n7pOQvTn3qoBk4qQ8/hSaKTsTQ2U06b0AIqT&#43;y7n&#43;6Kks55YYyqkYPPNWPts3&#43;zUNyvoWuS2p//2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery1/input_hu85087770d2a136cc0c00623e98b23608_5968_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery1/output.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="400" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAFQMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APOolLuFHfir1xp91pvlz7iu7oy8YNVbbaZow5wCeTXTX8MNx4d&#43;0yzkyQgKvPBO444&#43;hpSdmVCHMmc1eyedMHMryMVG4v1z3qvT3wxpMCquRYM8VbuL65mtobeSTMcfKr059/WqajJAqRvm/Ck0NNk8NjPOm9ACKk/su5/urUllPLBGVUjHB5qz9tm9VqG5X0NFyW1P/9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery1/output_hu16a14fbe8a77b7963b28440eb672d79e_34086_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+</div>
+</div>
+
+<script>
+	if (!jQuery) {
+		alert("jquery is not loaded");
+	}
+
+	$( document ).ready(() => {
+		const gallery = $("#gallery-b7392e055b2c115cb957e5845dae81ea-5");
+		
+
+		
+		let swipeboxInstance = null;
+
+		
+		
+		gallery.on('jg.complete', () => {
+			
+				
+				
+				$(() => {
+					$('.lazy').Lazy({
+						visibleOnly: true,
+						afterLoad: element => element.css({filter: "none", transition: "filter 1.0s ease-in-out"})
+					});
+				});
+			
+
+			swipeboxInstance = $('.galleryImg').swipebox(
+				jQuery.extend({},
+					{  }
+				)
+			);
+		});
+
+		
+		gallery.justifiedGallery({
+			rowHeight : "150",
+			margins : "5",
+			border : 0,
+			randomize :  false ,
+			waitThumbnailsLoad : false,
+			lastRow : "justify",
+			captions : false,
+			
+			
+		});
+
+		
+		
+	});
+</script>
+</p>
+<h3 id="try-faceoff-for-yourself">Try Faceoff for Yourself</h3>
+<p>If you&rsquo;re intrigued by the possibilities of AI-driven face swapping and want to experience it firsthand, I invite you to try out the Faceoff app. It&rsquo;s now available on <a href="https://github.com/thebiglaskowski/faceoff" target="_blank" rel="noopener noreffer ">GitHub</a> and can be installed locally for personal use.</p>
+<p>Faceoff allows you to swap faces from a source image to a destination medium. It supports image-to-image, image-to-GIF, and image-to-MP4 face swaps. Each app runs independently in its own Gradio instance for ease of use.</p>
+<p>To get started, you&rsquo;ll need to install some dependencies, including FFmpeg and CUDA (version 10.1 or higher). Once these are installed, you can clone the Faceoff repository and set up a Python environment to run the app. Detailed installation instructions are provided on the GitHub page.</p>
+<p>Once installed, you can access the different versions of the Faceoff app (Img2Img, Img2GIF, and Img2MP4) through your local server. The GitHub page also includes a demo comparing the results of Faceoff Img2MP4 with a deepfake created by DeepFaceLab.</p>
+<p>By trying out Faceoff, you&rsquo;ll get a firsthand experience of the power and potential of AI-driven face swapping. Whether you&rsquo;re interested in AI, digital imagery, or just want to have some fun, Faceoff offers a unique and engaging experience.</p>
+<h3 id="the-technicalities-of-face-swapping-simplified">The Technicalities of Face Swapping (Simplified)</h3>
+<p>Face swapping involves complex steps requiring a deep understanding of image processing and machine learning. The first step is face detection, where the algorithm identifies the faces in the input images. This is typically done using convolutional neural networks (CNNs), which are particularly effective at image recognition tasks.</p>
+<p>Once the faces have been detected, the next step is facial feature extraction. This involves identifying and extracting the key features of each face, such as the eyes, nose, mouth, and shape of the face. These features are then used to create a mask of the face, which can be superimposed onto the target face.</p>
+<p>The final step is the actual face swap, where the face from the input image is superimposed onto the target face in the other image. This involves aligning the features of the two faces, adjusting the color and lighting to match the target image, and blending the edges of the face mask with the rest of the image to create a seamless result.</p>
+<h3 id="the-future-of-face-swapping">The Future of Face Swapping</h3>
+<p>The advancements in face-swapping technology, as exemplified by the Faceoff app and InsightFace technologies, are a testament to the power of AI and machine learning. As these technologies evolve, we can expect even more innovative applications. Whether for entertainment, security, or research, the potential applications of face swapping are vast and exciting.</p>
+<p>For instance, face swapping could be used in the entertainment industry to create more realistic special effects in movies or allow users to try different looks in virtual reality. Face swapping could protect individuals' identities in sensitive photographs or videos in the security sector. In medical research, face swapping could create realistic models for surgical training or psychological studies.</p>
+<p>However, with these advancements also come challenges. Issues such as consent, privacy, and the potential misuse of technology for malicious purposes are all concerns that must be addressed as the technology evolves. As developers and researchers, we must ensure these technologies are used ethically and responsibly.</p>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+	
+		.jg-entry img {
+			transition: transform .25s ease-in-out !important;
+		}
+
+		.jg-entry img:hover {
+			transform: scale(1.1);
+		}
+	
+
+	
+</style>
+
+
+
+
+
+<div id="gallery-b7392e055b2c115cb957e5845dae81ea-6-wrapper" class="gallery-wrapper">
+<div id="gallery-b7392e055b2c115cb957e5845dae81ea-6" class="justified-gallery">
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery3/example11.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="336"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABIAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APO/KxAJ&#43;gZtqj1IHP8AT86u3Vp5CxSLDIkbxruYg4Lex&#43;nNQ2N7PGhgjk2jBI4zzW9HqcGq6X9lu50gK9DsJ5ByDjt1xxWM&#43;ZG0eVnOnB69B1NQucmt&#43;HQopIw7Xsb55WMEKcevP&#43;NVbm2tF3xRCJWAzy&#43;5ifQURkhSRjKSGBBwQetakf3kbv6/iKyx1rUj6x/57itZGaLEIDadcbgDsYbM/wAOQc49KoSMTEMknAIH5VoQf8g66/31/kaz3/1X4H&#43;VQimf/9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery3/example11_hu7cd426c4e198aeb64ebbd3a8c24fc6c6_12662_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery3/example12.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOMgvQ8m2UAA8DtXRWt3aw6c0IEys2TKyjII7fz9K5gwHb91ge2RitKFmi0xIbmTYLl/vYyQij/E/pSGomxbRraXgEVwAGQEEnZjPsRzVfU438racYjbhvLCknj0rPsb0pIke5t2eGBxitK8klntyZSSVYdSPYVI5RszHiKu8KOpZQMEGm6mqpeRJGpACjgn8TU9nJumTZKThcuGXAQnjt1qrqkrPevICRg4GRxgcce1PqNOyuLHbvNNEka8l8A5rVuLgC2KkjccA49cCqWlz3FrcII0Tzgf4h2I7VLc2qDcUlzg8Ac0Mcpc2x//2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery3/example12_hu8105dc0c13a7273de80dfab67102bc20_152090_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery3/example13.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="512" height="512"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOHt4CXC8ZPTJresWa2ZRIzx7BztHzZrLCS2pUsnzByNrD8615njg0uKRYz5sg8sse3Bz/IVlKVtCUk7FK6T7SS43Mqgkcc49/SsmWMqw25Geea6Ey&#43;dorQJCBInzM45Lrn9MZH1qOS3VvD4vJo/3rOIkYjsMkn&#43;QohLmYTtFE84/ty1FzAw&#43;2wffRv&#43;Wq/3h7&#43;v51l39/PcIiNEFSIBQFGAT3NVkErMoU5HrnFFzM6bEPB3DNN6ijCxd0nVRFciKaHAkBQkHsfY1f8AEUn2UQaesjMtvGN&#43;eNzN8xJ/QfhWEGDThsZbHy/XtT5fMaR/Ncqe5x1pR0VkOUbyuf/Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery3/example13_hu2224e16b051665d0a566a095c120fb22_18942_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery3/example15.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AM5IGZlxwM81raakFvcFN0fmuMgyn5QOwA9aohhDbtM52qgLE/SqFvrihY5rhY2cPhWKZ2nqD36cU5baEw1lqbOtKlzKJ4AqqRhwnTcPcViSMwwBnPetHTNRtru4nhRRGC5CgDA4x/Opbm13MMdqa2E3aVjD1a/eOKCJT8rlt&#43;e/TFYZuFSdTtJjDZ256ev8q0tV2fZ4nJ5V8AHuD/kVkTj5gQMKelD7BFdTUnmWwv3kib5X2shU9O9dTaXJubOKZsbmXJFcBHjdls4Faun6vOl1FHkCMkLjHalHRWHNXd0f/9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery3/example15_hu32a5cc2187c546b8699f976d5d5a92ab_264412_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery3/example16.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOXghADMSFXI5NaaXGnaaVSJfPml6o4yf/rVmmctbupGWIAAxUvh&#43;3jm1U3M1q10IsYjB6H1PriiTuFNWv3NRJdNvR5zW6rtAOzGCeP/AK1Zl6sb3OYwAgY8Z6VJ4lto7XVfPt4JbcOxBRjhWxjlfaqpVp0XL4dsnr69s0RKqNO2mo2KQeWdxC&#43;ue9R2l1Pp9x9pjGY5ModpB4qlfShZRsG3jp2pbaQGHaDg7gSOxpW0JTaZc1C7ur6WK6mR/IT5E3DrVkfdM64Ma8ZHPNJp90xV4FeJTt&#43;UyDPfp7VVF0J2ZF/dZbLAcDPt&#43;VCfQclf3j//2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery3/example16_hu229d6f3df894c47efeeac6e416d738b3_76218_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery3/example17.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="400" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAFQMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOY0mGOcmQkYjI4YhRj29a6XULizuoFtzDgSjMbBCCPfntWJpGnyXNr5jyYBXJXGPp9auIZrt0t3gEawoUDbT83oenTjP41501zSvc9qElGKTRzl6iW908MgPynjdioN8H90fmP8Kn1IywTAGZWPQ8g4xVP7RL/fH5CuuKurnFUajJo3k1RLSYMF5YH5mHB9KtvrBDEuq7dwYZ&#43;lY0FzuspAyRuzEDDnkVI9xbS27kA&#43;eSCBjCoO9cvs76He6qWvcmvksXkDXVpMszZLbsrkdqreVpX/AD7v/wB9GqkzySMD5u/A7t0/Oo9snr&#43;orVQdt2YuUG/hX3H/2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery3/example17_hudcb07795225c9ca97aec36e8b2944df5_57554_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery3/example18.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="336"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABIAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOj&#43;2Wdgmbi8ijOPu7st&#43;Q5rnda8RPNcr/Z9xG8KjkuhyT364IrN0jS7Z4pJL&#43;ZokVN2VRmCjpubHQZrMvbu3inS2hJl8vgyKPv&#43;hx9Pr0pyqN7FU6MI/EaNzqsP22zkknnVWGZ4lUbVPTj1rbDWDMB53BGdxXgfWuOiLagrLOrLKgLRFTjnqB71dsF1e1dC6pcR8bhkFlH&#43;NHtpRF9XhIt6oAnh6d14YuoJHUj0rmbJVKrkA/PjkfSun1X/AJFuX/rotczY/cX/AH/8Knob/wBfkX5CUimdSVZZeGHBHNdDpbs2nRFmJLOMknrzXOzf8e8//XX&#43;tdDpP/INh/3x/OsZDif/2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery3/example18_hud1ce359a3cf03cad2fa7f6c487f13a97_53918_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery3/example19.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="587"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIAB8AIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/ACSRXuHTe3H8NQyyRQKDK5x14FQtJvmLcgg8EdRUV0ryldwyPpivUqc9OJ4lJU6tRfijRRkKgxHIYDGBTZJDGQhJB6mm2ckUQjSbKYXqO1QSTs9wZC&#43;4Z6EdaqHM7aGVWMYt2l1KKSfNk1ZF382SN3PU1jln3EjPtzUscjAHd68c1s0pv3kaLmpx91l&#43;aYSTM65AJzimbz61W8ygSVutFYwcb6n/2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery3/example19_hudb4d12acb5a96dd55e7c0f7fe3d6affd_183208_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery3/example20.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOMQZtW/31/kKmuIp7ufZa75MLkqgPH5UlrL5MDOEDfMBg&#43;4Ara0C58m5unZzDK0fCqA24Dtz7kGsZOyuaU1eVjnoZ5Ldykh4zyD2NKgMszhAWLdOPpRqTBtVkMbGUbvvEAbjUtrOY7oSMmNoIwDRf3bjt79iJG/0dhnHzA/kBXRaRpMdzbx3ksjHcnzE44PTiuVDbVyc4X078VpR6jOLD7KHxDncOecHtU1E3oh0Wlqyxq8WmRyKLTczrwzg4B9sf1rKhlDOx74p0H76SV2&#43;bHAyarq2Lp8dCKpRsrCk7yuf//Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery3/example20_hu39be7a75dc4e036e937f6929f9b342aa_124406_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery3/example3.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="417" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAFgMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AON0zSZ59bisnjyytudRyMDmuvs5ILi9eIMFYrg47HnORUM4tNH1GO8DM7yqVWRTxj0x1zVOa/Wzuo5YrXyWcjzJXO7Oetaqr7KomulzanT5ou/U05LXk7fmwcZWmfZm/un8qbNqttYKZGlLZIHHOcgk/wAqg/4Sq0/vN&#43;VezDHRcUzKfNGVizf6QYxLNPAZF8oqHQbgp4IPt9ayDYF4EklUsjMDgnBKjriuke8aHTJQy8uNpB7A8VgRaisv2gzMG2DaoPOBjj8q8fGR9nUsvU2otyWpi6wRDcJBncwUM/PAJ5x&#43;WP1rO8welF3M013LIzZLOeai3UKVtEYPV3Z//9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery3/example3_hu774a01822f82b22c68db5059296e2e53_171824_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+</div>
+</div>
+
+<script>
+	if (!jQuery) {
+		alert("jquery is not loaded");
+	}
+
+	$( document ).ready(() => {
+		const gallery = $("#gallery-b7392e055b2c115cb957e5845dae81ea-6");
+		
+
+		
+		let swipeboxInstance = null;
+
+		
+		
+		gallery.on('jg.complete', () => {
+			
+				
+				
+				$(() => {
+					$('.lazy').Lazy({
+						visibleOnly: true,
+						afterLoad: element => element.css({filter: "none", transition: "filter 1.0s ease-in-out"})
+					});
+				});
+			
+
+			swipeboxInstance = $('.galleryImg').swipebox(
+				jQuery.extend({},
+					{  }
+				)
+			);
+		});
+
+		
+		gallery.justifiedGallery({
+			rowHeight : "150",
+			margins : "5",
+			border : 0,
+			randomize :  false ,
+			waitThumbnailsLoad : false,
+			lastRow : "justify",
+			captions : false,
+			
+			
+		});
+
+		
+		
+	});
+</script>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>The evolution of face-swapping technology, from its humble beginnings in the film industry to its current applications in apps like Faceoff, is a testament to the power and potential of AI and machine learning. As we continue to push the boundaries of what is possible with these technologies, we can look forward to a future where face swapping is not just a novelty but a valuable tool in various fields.</p>
+<p>Whether creating custom portraits for friends and family, crafting humorous memes, or generating professional headshots for LinkedIn and other social media sites, the Faceoff app opens a world of creative possibilities. The high-quality results produced by the app, thanks to the combination of InsightFace&rsquo;s technology and the GFPGAN and Real-ESRGAN scripts, make it a versatile tool.</p>
+<p>Despite its limitation to personal use, the Faceoff app&rsquo;s development represents a significant step forward in applying face-swapping technology. It demonstrates how open-source tools and libraries, such as those provided by InsightFace, can create powerful applications that push the boundaries of what is possible with AI and machine learning. As we continue to explore and develop these technologies, the possibilities for face-swapping&rsquo;s future are endless.</p>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+	
+		.jg-entry img {
+			transition: transform .25s ease-in-out !important;
+		}
+
+		.jg-entry img:hover {
+			transform: scale(1.1);
+		}
+	
+
+	
+</style>
+
+
+
+
+
+<div id="gallery-b7392e055b2c115cb957e5845dae81ea-7-wrapper" class="gallery-wrapper">
+<div id="gallery-b7392e055b2c115cb957e5845dae81ea-7" class="justified-gallery">
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery4/example11.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="402"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABUAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOIvogbkiPcWY4Cbec&#43;lbksqaT/ZejNMyt5m66MZ&#43;ZWYjIB7EDA4961NRjgtJnv7GyM10x&#43;8zABPUgHvXPxWX9pao8DbWLxhjIzcp7jJ9/0rk5lsehGk2myS11SdZpY1u2mgikYRuVBMmDwckfTmsm/1XUZZGjlkaIgk4HB5GO3XitK1sWg3o4CJuOznr6n6Vn6yFW6XBOQvGPT3pQs6j0NatDloKV9TtfMa4lZPujcRwK5qZEtrmZgCSrlBzjAyRiuitv8Aj5b/AH65&#43;/8A9fcf9d2/9CoktCMM3zMtShmgjkLYySOB9P8AGuf1lHSdZDJu3r0x0FdE/wDx5xfVv6Vga71h/wB0UUfiOjHt&#43;zXqf//Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery4/example11_hu71aae6fea12f0030c61b5e407253f88c_447080_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery4/example12.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="400"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABUAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AON07IkDw5hJUnzA2CCBk49K6BbBLaOBrUKwlUtJIT0x1x/nNYlt/plyIl2QxTTgggfczkHj0wavXcsL&#43;fa2w/cRSBEm8zGH5AIPoR/niiV3C1wjZT5mrotLpsdzo8t&#43;7Rxm3l2DoC/AOeO4ORn2rNfTWvGa7uGby4x&#43;8nbHJI4Ge5/U1HJdSLaJZMz7VXcpLHnJ9KszXJcW0M7OLNZhI6gcEnr9cc1rtAyteehjWspIZ1G0ohcYPGe360TBUiKBQAHA44zx1qOz/wBXL/1xapLn&#43;L/rqP5VizZC2l3LbvMFdvnTa2GxnvTpZ5ZVEUkjMikkDdwOKrJ/rH/3f6VK3&#43;sNaIhn/9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery4/example12_hu88db1f33fc3e5f81c600a0af5ea01360_134370_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery4/example13.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="338"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABIAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AO8ke2IPyn/v2f8ACub1WZI9atdrlFdGU/KRnkY7V1LzpjhJD/wAj&#43;dc1r9kNTvo0y8DJEzKxXPOR2FS/IuNr6mNqzqoSMSkBnIbsR&#43;lc9qKlpA5BPyjnH1rTuLQC4YXEyu0b4UqNvoKmla6WZLeGFZopF5UDP1z7YrFttnSopRPTG6Vh6j/AMhRP&#43;vdv/QlrcbpWHqP/IUT/r3b/wBCWug4ziiA&#43;q3e4Bv3uOeao2M80d3GUldTyMqxHGDV8f8AIUu/&#43;utZlp/x9R/U/wAjXN9o7vsH/9k="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery4/example13_huc38001b6efa23468244e6921969be20b_45774_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery4/example14.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AMW80SO5u5pLB0ZFQSeX0YDGenesgt5MxVUDMBk5roUvJYXMZhb7QqgRvEAT&#43;nbHqcVzctzFBq0mGLR&#43;YwLDuN3FevX5FsY2uDgzSHICkdgK29JsLaNY3naJpXO5I2faCPc&#43;g/rWKtwLzUztKxqchS&#43;ea13ECKLnaWy3ljDgFcDqBj0xUUmr3DYoDxDJB5ig7kxtUNnJ9we3U1l3t5FdyeelsIJWyZNrZVj6gdvfn8qgnUiRgOgJqPBHauKVRvc0S0HBznOTk981ZhujGyHPK8H3FVcHNSxRF3AojKzE0f/Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery4/example14_hud9c84b130843cb56de16794ee9d33842_165478_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery4/example15.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="400"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABUAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOYtjJakKJAMcHnrXR6fqYSaG3hiYyy4UkYA6dvyNczY3VtLlLiNvMP3SGAAP0IpVLy3AeO5G6JuhOMYrjqxu30Oug0vi17eR1GuXH2e52RlirjcoZg3A78dq524aK45LyeazEtxxtqa98osjXk6&#43;c6/KUbO0D26VnTTyK27eGOMKT2FOjCzuRiaikrR&#43;ZWhdpQhOAVPUDrT7kC0vg8WfmAbBPc1HafcH1H86k1P/j6T/cFay&#43;OxMdYOXUS5naeNDwp3BeKimYrCACeF6k0p/wBUn/XQU24&#43;4foKpELRH//Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery4/example15_hud31e62096196dc4a3e1c621dcb906188_115438_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery4/example16.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="400" height="600"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIACAAFQMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOR0XRoLy2uNQ1CZ4bK34Plj55W7KvYfWrcOladdokzQtawuQOGZmALY3ZPHfp3x2pNNeW68PiwiXdvJBGcc7s5P6Vo3uojRGtbN4llA2uQeOAfx681Dcr2NoqLRzuvaJc&#43;H9UexuSGwNyOBw6noazc11vjzVotUOmzbQJhE3mAH3GPw61yW9auLuiLGx4duBbLO7k4yu1fXrn&#43;lW9TlOpfvXA3IPlrHsThWHvV1ZMfjxQ463DmMi5maeYux9gPQelRVPPAwlJAyD6VH5L/3T&#43;VIo//Z"
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery4/example16_hube352c58ac56a7c77c92947b37c24281_60194_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery4/example17.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="375"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABQAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOet7aGRQNmWJ/OrNzpC&#43;cqXH7lFiBGwZZjjkH0rFvrp41SGFirkg5BwQe1aUd3BNJDbwyMZCgWd84B9WJ6mpnF6M1p2T1G2ljbR3TpMXcBNy7k6Vnui2q4KBmYnIPard6Hs4POSbc5JVtpyNnHf64/OsqaYyx&#43;Yx5PJPqaLNRuEkr3RXvGY3THPQ4otriS3YyxthhkfUU27/wCPl/8Aepif6tvrXQtyFudJHK1wiJLgh4eePUVl6e5aY2jANG&#43;7qMkcHp&#43;VaNp/yy/64r/IVm6b/wAhJf8AgX8jUNe6zVH/2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery4/example17_hudd4d071b5e0d1fcd1605d920eb47fc09_42740_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery4/example18.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="429" height="361"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABsAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/AOz0dZba3aOdChLnaD34/wDrVpbskVgaxemCWwvRJm2EmHI9xwfyzVp9XhVgkcyMzdAMVFOm7WRU5K9xuuatLp&#43;FiOGxnlc5/wA4rQ066F7YxXKggSLnBGOehrmtTtZtSAaWdS397YOnoPzqpqWs3uh2MEkV4QgwnllQcDtg1bpSjeTDnhJKK3IpW1&#43;6shaLaxvbMowz7VBHboSRUlnpEtlD9pngMk65&#43;WKXfx06YH9a0rgmI5Tg4xzzx&#43;NZU&#43;pXcD5ikVD6iNf8K51WlDYv2aluOk1FZ4t0c0a8/wB45H14rJ8R3UF3AlrCN7uyogA6nPFZ2uXlw7PIZTuIycADJ&#43;gqPw0Tc6hbyTHey5IJ7fKa6XiG4bbmSopS0Z//2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery4/example18_hueb95938ec09164d7c9875b03cf227cd0_12040_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery4/example19.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="337"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABIAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APOAKmsoPtF9FD/ebBPoO9QCr2iNs1aFycDdgn68VtOXLFhTjzSSNDVEFlOsaNFLGxwAowRWl4ayHvmHayl/9BxWJqNxsvAJFJCMQPU8nmt7wwVeDUXU5H2KT&#43;lca&#43;HU7Gkm7HGL1FWbMkXSYPRhVZeoqxZ/8fSf7wreqc1MueICTqWCTgKMfkK2PCH/AB66r/15Sf0rG8Qf8hP/AICv8hWz4Q/49dV/68pP6VgvgR09ZH//2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery4/example19_hu7704efaddeccfbe19fdc26f657ba0f5c_152496_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+		
+		
+				
+			
+			
+			
+				
+			
+
+			
+			
+
+
+			
+			
+			
+
+			
+			
+
+
+			<div>
+				
+				
+					
+				
+				<a href="/posts/face-swapping-with-ai/images/gallery4/example20.webp" 
+					class="galleryImg"
+					
+					>
+					<img			
+						width="600" height="400"
+
+						
+							
+							style="filter: blur(25px);"
+							
+								src="data:image/jpeg;base64,/9j/2wCEAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4&#43;JS5ESUM8SDc9PjsBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O//AABEIABUAIAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5&#43;gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4&#43;Tl5ufo6ery8/T19vf4&#43;fr/2gAMAwEAAhEDEQA/APOoyOD6Y/mK0oZZFZAjBQWUE/jWUpx2zV21EdxKiSSCIFhy2TgevFKorK5rR1fKTXDk&#43;b8&#43;7Ln&#43;dZrEEYz3q7fJFa3LxRSidQT865GefeqBNOnqrire7LlHpIVPAqSO5kjlLcHcOc1COtB&#43;8KpxT3Gqko2aZLNdyTEbsAL0AHSo2OR0plOboKOVLREucp3cnc//2Q=="
+							
+							class="lazy"
+							data-src="/posts/face-swapping-with-ai/images/gallery4/example20_hud1ca814f24d94f2d7469509e6d086969_196676_600x600_fit_q90_h2_lanczos_2.webp"
+						
+
+						
+					>
+				</a>
+			</div>
+		
+	
+</div>
+</div>
+
+<script>
+	if (!jQuery) {
+		alert("jquery is not loaded");
+	}
+
+	$( document ).ready(() => {
+		const gallery = $("#gallery-b7392e055b2c115cb957e5845dae81ea-7");
+		
+
+		
+		let swipeboxInstance = null;
+
+		
+		
+		gallery.on('jg.complete', () => {
+			
+				
+				
+				$(() => {
+					$('.lazy').Lazy({
+						visibleOnly: true,
+						afterLoad: element => element.css({filter: "none", transition: "filter 1.0s ease-in-out"})
+					});
+				});
+			
+
+			swipeboxInstance = $('.galleryImg').swipebox(
+				jQuery.extend({},
+					{  }
+				)
+			);
+		});
+
+		
+		gallery.justifiedGallery({
+			rowHeight : "150",
+			margins : "5",
+			border : 0,
+			randomize :  false ,
+			waitThumbnailsLoad : false,
+			lastRow : "justify",
+			captions : false,
+			
+			
+		});
+
+		
+		
+	});
+</script>
+
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 08-28-2023</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://thebiglaskowski.com/posts/face-swapping-with-ai/" data-title="Faceoff: A Journey into the World of AI-Driven Face Swapping" data-via="thebiglaskowski" data-hashtags="InsightFace,Face Swap,GFPGAN,Real-ESRGAN,AI"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://thebiglaskowski.com/posts/face-swapping-with-ai/" data-hashtag="InsightFace"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://thebiglaskowski.com/posts/face-swapping-with-ai/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Pinterest" data-sharer="pinterest" data-url="https://thebiglaskowski.com/posts/face-swapping-with-ai/" data-description="Dive into the intriguing realm of AI-driven face swapping with this detailed exploration of the Faceoff app and InsightFace technologies. This article offers insights into the progression of face swapping, the impact of machine learning, and the use of Python scripts such as GFPGAN and Real-ESRGAN to improve image quality." data-image="images/featured.webp"><i class="fab fa-pinterest fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/insightface/">InsightFace</a>,&nbsp;<a href="/tags/face-swap/">Face Swap</a>,&nbsp;<a href="/tags/gfpgan/">GFPGAN</a>,&nbsp;<a href="/tags/real-esrgan/">Real-ESRGAN</a>,&nbsp;<a href="/tags/ai/">AI</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/shellgpt-revolutionizing-cli-with-the-power-of-ai/" class="prev" rel="prev" title="ShellGPT: Revolutionizing Command-Line Interactions with the Power of AI"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>ShellGPT: Revolutionizing Command-Line Interactions with the Power of AI</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about" target="_blank">Joe Laskowski</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://thebiglaskowski.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-TQ7QBHXQ19', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-TQ7QBHXQ19" async></script></body>
+</html>

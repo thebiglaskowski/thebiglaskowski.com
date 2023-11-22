@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Joe Laskowski</title>
+        <link>https://thebiglaskowski.com/categories/</link>
+        <description>Categories - Category - Joe Laskowski</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>joe@thebiglaskowski.com (Joe Laskowski)</managingEditor>
+            <webMaster>joe@thebiglaskowski.com (Joe Laskowski)</webMaster><atom:link href="https://thebiglaskowski.com/categories/" rel="self" type="application/rss+xml" /></channel>
+</rss>

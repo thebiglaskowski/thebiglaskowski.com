@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Customize Your Terminal: A Comprehensive Guide to Enhancing Your Linux CLI Experience - Joe Laskowski</title>
+        <link rel="preload" as="image" href="/images/forrest-rs.webp" type="image/webp" /><meta name="Description" content="A guide to make your terminal look and feel professional. Transform your boring default stock terminal into a riced-out beast."><meta property="og:title" content="Customize Your Terminal: A Comprehensive Guide to Enhancing Your Linux CLI Experience" />
+<meta property="og:description" content="A guide to make your terminal look and feel professional. Transform your boring default stock terminal into a riced-out beast." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thebiglaskowski.com/posts/riced-out-terminal/" /><meta property="og:image" content="https://thebiglaskowski.com/posts/riced-out-terminal/images/featured-social.webp" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-05T17:38:46-04:00" /><meta property="og:site_name" content="thebiglaskowski.com" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://thebiglaskowski.com/posts/riced-out-terminal/images/featured-social.webp"/>
+
+<meta name="twitter:title" content="Customize Your Terminal: A Comprehensive Guide to Enhancing Your Linux CLI Experience"/>
+<meta name="twitter:description" content="A guide to make your terminal look and feel professional. Transform your boring default stock terminal into a riced-out beast."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="favicon-150x150.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://thebiglaskowski.com/posts/riced-out-terminal/" /><link rel="next" href="https://thebiglaskowski.com/posts/mastering-ai-generated-art-midjourney/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Customize Your Terminal: A Comprehensive Guide to Enhancing Your Linux CLI Experience",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/thebiglaskowski.com\/posts\/riced-out-terminal\/"
+        },"genre": "posts","keywords": "Linux, CLI, Tutorial, Oh-my-zsh, Powerlevel10K, ColorLS","wordcount":  878 ,
+        "url": "https:\/\/thebiglaskowski.com\/posts\/riced-out-terminal\/","datePublished": "2021-08-08T00:00:00+00:00","dateModified": "2023-06-05T17:38:46-04:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Joe Laskowski"
+            },"description": "A guide to make your terminal look and feel professional. Transform your boring default stock terminal into a riced-out beast."
+    }
+    </script>
+        <link rel="dns-prefetch" href="////c.disquscdn.com">
+        <link rel="preconnect" href="////c.disquscdn.com">
+        
+        <link rel="dns-prefetch" href="////thebiglaskowski.disqus.com">
+        <link rel="preconnect" href="////thebiglaskowski.disqus.com">
+        
+        <link rel="dns-prefetch" href="////www.googletagmanager.com">
+        <link rel="preconnect" href="////www.googletagmanager.com">
+        
+        <link rel="dns-prefetch" href="////apis.google.com">
+        <link rel="preconnect" href="////apis.google.com">
+        
+        <link rel="dns-prefetch" href="////connect.facebook.net">
+        <link rel="preconnect" href="////connect.facebook.net">
+        
+        <link rel="dns-prefetch" href="////cdn.jsdelivr.net">
+        <link rel="preconnect" href="////cdn.jsdelivr.net">
+        
+        <link rel="dns-prefetch" href="////fonts.gstatic.com">
+        <link rel="preconnect" href="////fonts.gstatic.com">
+        
+        <link rel="dns-prefetch" href="////www.gstatic.com">
+        <link rel="preconnect" href="////www.gstatic.com">
+        
+
+    </head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Joe Laskowski">thebiglaskowski</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/" title="Blog Posts"> Posts </a><a class="menu-item" href="/about/" title="About Me"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Joe Laskowski">thebiglaskowski</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="Blog Posts">Posts</a><a class="menu-item" href="/about/" title="About Me">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Customize Your Terminal: A Comprehensive Guide to Enhancing Your Linux CLI Experience</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/about" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Joe Laskowski</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="08-08-2021">08-08-2021</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;878 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/posts/riced-out-terminal/images/featured.webp"
+        data-srcset="/posts/riced-out-terminal/images/featured.webp, /posts/riced-out-terminal/images/featured.webp 1.5x, /posts/riced-out-terminal/images/featured.webp 2x"
+        data-sizes="auto"
+        alt="/posts/riced-out-terminal/images/featured.webp"
+        title="A guide to make your terminal look and feel professional. Transform your boring default stock terminal into a riced-out beast." width="991" height="424" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#customize-your-terminal-in-ubuntu-2004">Customize Your Terminal in Ubuntu 20.04</a>
+      <ul>
+        <li><a href="#1-install-base-16-gnome-terminal">1. Install base-16-gnome-terminal</a></li>
+        <li><a href="#2-download-and-install-the-patched-hack-nerd-font">2. Download and Install the Patched Hack Nerd Font</a></li>
+        <li><a href="#3-install-ruby-and-color-ls">3. Install Ruby and Color LS</a></li>
+        <li><a href="#4-install-zsh-and-make-it-your-default-shell">4. Install ZSH and Make It Your Default Shell</a></li>
+        <li><a href="#5-install-oh-my-zsh-framework">5. Install Oh My Zsh Framework</a></li>
+        <li><a href="#6-install-the-powerlevel10k-theme-and-plugins">6. Install the PowerLevel10K Theme and Plugins</a></li>
+        <li><a href="#7-edit-the-zshrc-configuration">7. Edit the .zshrc Configuration</a></li>
+        <li><a href="#8-run-or-re-run-the-powerlevel10k-theme-setup">8. Run or Re-Run the Powerlevel10K Theme Setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#additional-customizations-and-tools">Additional Customizations and Tools</a>
+      <ul>
+        <li><a href="#1-explore-additional-zsh-plugins">1. Explore Additional ZSH Plugins</a></li>
+        <li><a href="#2-customize-your-terminal-colors">2. Customize Your Terminal Colors</a></li>
+        <li><a href="#3-customize-your-shell-prompt">3. Customize Your Shell Prompt</a></li>
+        <li><a href="#4-use-a-terminal-multiplexer">4. Use a Terminal Multiplexer</a></li>
+        <li><a href="#5-integrate-git-and-other-version-control-systems">5. Integrate Git and Other Version Control Systems</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Enhancing the appearance and functionality of your Terminal can be a fun and rewarding way to personalize your workspace. This tutorial will demonstrate how to transform your Ubuntu terminal into a visually appealing and professional environment using color schemes, the Color LS Ruby gem, and other valuable tools. By the end of this guide, your Terminal will look fantastic and improve your daily workflow.</p>
+<h2 id="customize-your-terminal-in-ubuntu-2004">Customize Your Terminal in Ubuntu 20.04</h2>
+<h3 id="1-install-base-16-gnome-terminal">1. Install base-16-gnome-terminal</h3>
+<p>The default shell in Ubuntu 20.04 is the Gnome terminal. Follow the instructions on the <a href="https://github.com/chriskempson/base16" target="_blank" rel="noopener noreffer ">base16 github page</a> to locate the shell you are using and install the desired color scheme.</p>
+<h3 id="2-download-and-install-the-patched-hack-nerd-font">2. Download and Install the Patched Hack Nerd Font</h3>
+<p>Nerd Fonts is a set of modified fonts with additional glyphs or symbols. Download the hack.zip file from the <a href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreffer ">Nerd fonts download page</a>, extract the contents, and install the &ldquo;Hack Regular Nerd Font Complete.ttf&rdquo; font. Then, set it as your terminal font in Gnome terminal preferences.</p>
+<h3 id="3-install-ruby-and-color-ls">3. Install Ruby and Color LS</h3>
+<p>Color LS is a Ruby gem that adds color to the ls command output. Install Ruby and Color LS with the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install ruby-full
+sudo gem install colorls
+</code></pre></div><h3 id="4-install-zsh-and-make-it-your-default-shell">4. Install ZSH and Make It Your Default Shell</h3>
+<p>ZSH is a powerful command-line interpreter or shell for UNIX-based operating systems. Install ZSH and make it your default shell with the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install zsh
+chsh -s <span class="k">$(</span>which zsh<span class="k">)</span>
+</code></pre></div><p>Log out and back in again to apply the changes in Ubuntu.</p>
+<h3 id="5-install-oh-my-zsh-framework">5. Install Oh My Zsh Framework</h3>
+<p>Oh-My-ZSH is an open-source framework for managing the ZSH shell. It provides a large collection of plugins and themes for ZSH. Install Oh-My-ZSH with the following command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></div><h3 id="6-install-the-powerlevel10k-theme-and-plugins">6. Install the PowerLevel10K Theme and Plugins</h3>
+<p>PowerLevel10K is a popular ZSH theme with a modern and powerful appearance. Install PowerLevel10K, auto suggestions, and syntax highlighting plugins with the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/romkatv/powerlevel10k.git <span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="si">}</span>/themes/powerlevel10k
+git clone https://github.com/zsh-users/zsh-autosuggestions.git <span class="nv">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="nv">$ZSH_CUSTOM</span>/plugins/zsh-syntax-highlighting
+</code></pre></div><h3 id="7-edit-the-zshrc-configuration">7. Edit the .zshrc Configuration</h3>
+<p>Customize your .zshrc configuration file with the appropriate changes, including setting the PowerLevel10K theme, enabling command auto-correction, adding downloaded plugins, and creating aliases for Color LS.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Open .zshrc with your preferred text editor, e.g., vim or nano</span>
+vim ~/.zshrc
+
+<span class="c1"># Find the ZSH_THEME line and change it to</span>
+<span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&#34;powerlevel10k/powerlevel10k&#34;</span>
+
+<span class="c1"># Add the following line right below ZSH_THEME to incorporate the patched Hack Nerd font installed earlier</span>
+<span class="nv">POWERLEVEL10K_MODE</span><span class="o">=</span><span class="s2">&#34;nerdfont-complete&#34;</span>
+
+<span class="c1"># Uncomment the following line to enable command auto-correction</span>
+<span class="nv">ENABLE_CORRECTION</span><span class="o">=</span><span class="s2">&#34;true&#34;</span>
+
+<span class="c1"># To add the plugins we downloaded, edit plugins=(git) as shown</span>
+<span class="nv">plugins</span><span class="o">=(</span>
+git
+zsh-autosuggestions
+zsh-syntax-highlighting
+<span class="o">)</span>
+
+<span class="c1"># Add the following lines anywhere in your configuration</span>
+<span class="c1"># Color LS</span>
+<span class="nb">export</span> LS_COLORS
+
+<span class="c1"># Create a few aliases to use Color LS by default</span>
+<span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;colorls -A --gs --sd&#39;</span>
+<span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;colorls -lA --gs --sd&#39;</span>
+<span class="nb">alias</span> <span class="nv">lt</span><span class="o">=</span><span class="s1">&#39;colorls --tree --gs --sd&#39;</span>
+
+<span class="c1"># Save and exit the file</span>
+</code></pre></div><p>Remember to replace vim with your preferred text editor if needed. After saving and closing the file, restart your terminal or run <strong>source ~/.zshrc</strong> to apply the changes.</p>
+<h3 id="8-run-or-re-run-the-powerlevel10k-theme-setup">8. Run or Re-Run the Powerlevel10K Theme Setup</h3>
+<p>Configure the Powerlevel10K theme with the following command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">p10k configure
+</code></pre></div><figure><img src="images/riced-out-term.webp"/><figcaption>
+            <h4>Riced out Terminal</h4>
+        </figcaption>
+</figure>
+
+<p>You can run the configuration setup multiple times to fine-tune your Terminal&rsquo;s appearance. Experiment with various options provided by Powerlevel10K to create a unique and personalized terminal interface that meets your specific needs and preferences.</p>
+<p>With these steps, you can enjoy a visually appealing and functionally efficient terminal experience. By using the customization options available in Powerlevel10K, Color LS, and other tools, you can create an aesthetically pleasing terminal interface tailored to your workflow.</p>
+<h2 id="additional-customizations-and-tools">Additional Customizations and Tools</h2>
+<p>To further enhance your terminal experience, consider exploring additional customizations and tools:</p>
+<h3 id="1-explore-additional-zsh-plugins">1. Explore Additional ZSH Plugins</h3>
+<p>There are numerous ZSH plugins available that can improve your terminal experience. Browse the <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins" target="_blank" rel="noopener noreffer ">Oh-My-ZSH plugins page</a> for a comprehensive list of available plugins, and choose ones that suit your needs.</p>
+<h3 id="2-customize-your-terminal-colors">2. Customize Your Terminal Colors</h3>
+<p>Suppose you want to further customize your Terminal&rsquo;s colors. In that case, you can use tools like <a href="https://terminal.sexy/" target="_blank" rel="noopener noreffer ">Terminal.sexy</a> or <a href="https://github.com/Mayccoll/Gogh" target="_blank" rel="noopener noreffer ">Gogh</a> to create or choose from a wide range of color schemes that can be easily imported into your terminal preferences.</p>
+<h3 id="3-customize-your-shell-prompt">3. Customize Your Shell Prompt</h3>
+<p>Customize your shell prompt to display additional information or to match your preferred style. You can use tools like <a href="https://starship.rs/" target="_blank" rel="noopener noreffer ">Starship</a> or <a href="https://github.com/sindresorhus/pure" target="_blank" rel="noopener noreffer ">Pure</a> to create a minimalist and informative prompt. You can also manually customize your prompt by editing your .zshrc or .bashrc files.</p>
+<h3 id="4-use-a-terminal-multiplexer">4. Use a Terminal Multiplexer</h3>
+<p>A terminal multiplexer, like <a href="https://github.com/tmux/tmux" target="_blank" rel="noopener noreffer ">tmux</a> or <a href="https://www.gnu.org/software/screen/" target="_blank" rel="noopener noreffer ">screen</a>, allows you to create multiple terminal sessions within a single terminal window. This can improve your productivity by allowing you to easily switch between tasks without opening multiple terminal windows.</p>
+<h3 id="5-integrate-git-and-other-version-control-systems">5. Integrate Git and Other Version Control Systems</h3>
+<p>Integrate your Terminal with Git or other version control systems to streamline your development workflow. You can install plugins like <a href="https://github.com/olivierverdier/zsh-git-prompt" target="_blank" rel="noopener noreffer ">zsh-git-prompt</a> or <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git-flow" target="_blank" rel="noopener noreffer ">zsh-git-flow</a> to display branch and status information directly in your terminal prompt.</p>
+<p>By experimenting with these additional customizations and tools, you can create a truly unique and efficient terminal environment tailored to your specific needs and preferences. A well-configured terminal can improve your productivity, make it easier to navigate your filesystem, and provide a visually pleasing workspace that you&rsquo;ll enjoy using daily.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 06-05-2023</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://thebiglaskowski.com/posts/riced-out-terminal/" data-title="Customize Your Terminal: A Comprehensive Guide to Enhancing Your Linux CLI Experience" data-via="thebiglaskowski" data-hashtags="Linux,CLI,Tutorial,Oh-my-zsh,Powerlevel10K,ColorLS"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://thebiglaskowski.com/posts/riced-out-terminal/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://thebiglaskowski.com/posts/riced-out-terminal/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Pinterest" data-sharer="pinterest" data-url="https://thebiglaskowski.com/posts/riced-out-terminal/" data-description="A guide to make your terminal look and feel professional. Transform your boring default stock terminal into a riced-out beast." data-image="images/featured.webp"><i class="fab fa-pinterest fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/cli/">CLI</a>,&nbsp;<a href="/tags/tutorial/">Tutorial</a>,&nbsp;<a href="/tags/oh-my-zsh/">Oh-my-zsh</a>,&nbsp;<a href="/tags/powerlevel10k/">Powerlevel10K</a>,&nbsp;<a href="/tags/colorls/">ColorLS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/posts/mastering-ai-generated-art-midjourney/" class="next" rel="next" title="Unleashing Creativity: Mastering AI-Generated Art with Midjourney">Unleashing Creativity: Mastering AI-Generated Art with Midjourney<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about" target="_blank">Joe Laskowski</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://thebiglaskowski.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js" defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-TQ7QBHXQ19', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-TQ7QBHXQ19" async></script></body>
+</html>

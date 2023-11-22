@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Face Swap - Tag - Joe Laskowski</title>
+        <link>https://thebiglaskowski.com/tags/face-swap/</link>
+        <description>Face Swap - Tag - Joe Laskowski</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>joe@thebiglaskowski.com (Joe Laskowski)</managingEditor>
+            <webMaster>joe@thebiglaskowski.com (Joe Laskowski)</webMaster><lastBuildDate>Sat, 03 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://thebiglaskowski.com/tags/face-swap/" rel="self" type="application/rss+xml" /><item>
+    <title>Faceoff: A Journey into the World of AI-Driven Face Swapping</title>
+    <link>https://thebiglaskowski.com/posts/face-swapping-with-ai/</link>
+    <pubDate>Sat, 03 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/posts/face-swapping-with-ai/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/featured.webp" referrerpolicy="no-referrer">
+            </div>Face Swapping with Ai Face swapping, the intriguing process of digitally interchanging faces in images, has been a fascinating concept in digital imagery for years. The ability to replace one person&rsquo;s face with another in a photograph while maintaining the original image&rsquo;s integrity is a testament to the advancements in artificial intelligence (AI) and machine learning. This article delves into the intricacies of face swapping, focusing on an application called Faceoff, which leverages a Python library known as InsightFace.]]></description>
+</item>
+</channel>
+</rss>

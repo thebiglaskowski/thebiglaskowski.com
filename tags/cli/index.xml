@@ -1,0 +1,30 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>CLI - Tag - Joe Laskowski</title>
+        <link>https://thebiglaskowski.com/tags/cli/</link>
+        <description>CLI - Tag - Joe Laskowski</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>joe@thebiglaskowski.com (Joe Laskowski)</managingEditor>
+            <webMaster>joe@thebiglaskowski.com (Joe Laskowski)</webMaster><lastBuildDate>Sun, 21 May 2023 12:22:34 &#43;0000</lastBuildDate><atom:link href="https://thebiglaskowski.com/tags/cli/" rel="self" type="application/rss+xml" /><item>
+    <title>ShellGPT: Revolutionizing Command-Line Interactions with the Power of AI</title>
+    <link>https://thebiglaskowski.com/posts/shellgpt-revolutionizing-cli-with-the-power-of-ai/</link>
+    <pubDate>Sun, 21 May 2023 12:22:34 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/posts/shellgpt-revolutionizing-cli-with-the-power-of-ai/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/featured.webp" referrerpolicy="no-referrer">
+            </div>ShellGPT ShellGPT, a powerful command-line tool, revolutionizes how developers and administrators interact with their terminals. I&rsquo;ve used it in Powershell and WSL for the past few months, and it&rsquo;s incredible and has quickly become my favorite CLI tool. By leveraging the capabilities of OpenAI&rsquo;s GPT models, ShellGPT offers a wide range of functionalities, such as generating shell commands, code snippets, comments, and documentation.
+This tool eliminates the need for cheat sheets and notes, providing accurate answers directly in the terminal.]]></description>
+</item>
+<item>
+    <title>Customize Your Terminal: A Comprehensive Guide to Enhancing Your Linux CLI Experience</title>
+    <link>https://thebiglaskowski.com/posts/riced-out-terminal/</link>
+    <pubDate>Sun, 08 Aug 2021 00:00:00 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/posts/riced-out-terminal/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/featured.webp" referrerpolicy="no-referrer">
+            </div>Enhancing the appearance and functionality of your Terminal can be a fun and rewarding way to personalize your workspace. This tutorial will demonstrate how to transform your Ubuntu terminal into a visually appealing and professional environment using color schemes, the Color LS Ruby gem, and other valuable tools. By the end of this guide, your Terminal will look fantastic and improve your daily workflow.
+Customize Your Terminal in Ubuntu 20.04 1.]]></description>
+</item>
+</channel>
+</rss>

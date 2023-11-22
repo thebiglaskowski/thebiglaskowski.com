@@ -1,0 +1,88 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - Joe Laskowski</title>
+        <link>https://thebiglaskowski.com/tags/</link>
+        <description>Tags - Tag - Joe Laskowski</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>joe@thebiglaskowski.com (Joe Laskowski)</managingEditor>
+            <webMaster>joe@thebiglaskowski.com (Joe Laskowski)</webMaster><lastBuildDate>Sat, 03 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://thebiglaskowski.com/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>AI</title>
+    <link>https://thebiglaskowski.com/tags/ai/</link>
+    <pubDate>Sat, 03 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/tags/ai/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Face Swap</title>
+    <link>https://thebiglaskowski.com/tags/face-swap/</link>
+    <pubDate>Sat, 03 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/tags/face-swap/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>GFPGAN</title>
+    <link>https://thebiglaskowski.com/tags/gfpgan/</link>
+    <pubDate>Sat, 03 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/tags/gfpgan/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>InsightFace</title>
+    <link>https://thebiglaskowski.com/tags/insightface/</link>
+    <pubDate>Sat, 03 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/tags/insightface/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Real-ESRGAN</title>
+    <link>https://thebiglaskowski.com/tags/real-esrgan/</link>
+    <pubDate>Sat, 03 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/tags/real-esrgan/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Bash</title>
+    <link>https://thebiglaskowski.com/tags/bash/</link>
+    <pubDate>Sun, 21 May 2023 12:22:34 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/tags/bash/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>CLI</title>
+    <link>https://thebiglaskowski.com/tags/cli/</link>
+    <pubDate>Sun, 21 May 2023 12:22:34 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/tags/cli/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Linux</title>
+    <link>https://thebiglaskowski.com/tags/linux/</link>
+    <pubDate>Sun, 21 May 2023 12:22:34 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/tags/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Powershell</title>
+    <link>https://thebiglaskowski.com/tags/powershell/</link>
+    <pubDate>Sun, 21 May 2023 12:22:34 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/tags/powershell/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>ShellGPT</title>
+    <link>https://thebiglaskowski.com/tags/shellgpt/</link>
+    <pubDate>Sun, 21 May 2023 12:22:34 &#43;0000</pubDate>
+    <author>Joe Laskowski</author>
+    <guid>https://thebiglaskowski.com/tags/shellgpt/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>
